@@ -1,0 +1,12 @@
+sudo: required
+# tell travis to install docker ...
+services:
+  - docker
+
+# before our test are run
+# apply tag so not to copy long image id
+before_install: 
+  - docker build -t btesija/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run btesija/docker-react npm run test -- --coverage
