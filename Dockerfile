@@ -14,6 +14,7 @@ RUN npm run build
 # 2. section, RUN PHASE, 
 # any single phase can only have FROM statement
 FROM nginx
+EXPOSE 80
 # copy from /app/build folder from builder phase to 
 # nginx static content folder
 COPY --from=builder /app/build  /usr/share/nginx/html
